@@ -16,6 +16,7 @@ const createTask = async(req,res)=>{
 		const task = await Task.create(req.body);
 	    res.status(201).json({task}) 
     }catch(err){
+		console.log(err)
         res.status(500).json({ msg: err})
     }
 }
