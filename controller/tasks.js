@@ -1,14 +1,20 @@
 const Task = require('../Models/Task')
 
 
-const getAllTasks = (req,res)=>{
-    res.send("All Task")
+const getAllTasks = async(req,res)=>{
+	try{
+		const tasks = Task.find()
+		res.status(200).json({tasks})
+	}catch(err){
+		res.status(500).json({msg: err})
+
+	}	
 }
 
 const createTask = async(req,res)=>{
     try{
-   const task = await Task.create(req.body);
-   res.status(201).json({task}) 
+		const task = await Task.create(req.body);
+	    res.status(201).json({task}) 
     }catch(err){
         res.status(500).json({ msg: err})
     }
@@ -16,7 +22,7 @@ const createTask = async(req,res)=>{
 
 const getTask = async(req,res)=>{
 	try{
-		const task = await Task.findOneById(req.params);
+		const task = await Task.findOne(req.params);
 		res.status(201).json({task});
 	}catch(err){
 		res.status(500).json({msg:err})
