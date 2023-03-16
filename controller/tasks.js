@@ -21,7 +21,7 @@ const getTask = asyncWrapper(async(req,res)=>{
 }
 )
 
-const updateTask =asycnWrapper( async(req,res)=>{
+const updateTask =asyncWrapper( async(req,res)=>{
 		const { id: taskID } = req.params;
 		const task = await Task.findOneAndDelete({_id: taskID});
 		res.status(201).json({task});
