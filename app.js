@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const tasks = require('./routes/tasks');
 
+app.use(express.static('./public'))
 require('dotenv').config();
 const connectDB = require('./db/connections');
 app.use(express.json());
