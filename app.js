@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const tasks = require('./routes/tasks');
 const notFound = require('./middleware/not-found')
-const errorHandler = require('./errors/error-handler')
+const errorHandler = require('./errors/error-hanlder')
 
 app.use(express.static('./public'))
 require('dotenv').config();
